@@ -20,7 +20,7 @@ from ip_generator import IPGenerator
 from constants import IPProtocol #access to protocol numbers
 from raw_socket import raw_socket #easy raw socket creation and use
 
-src_ip = '127.0.0.1'
+src_ip = '192.168.0.1'
 dst_ip = '8.8.8.8'
 
 ip_packet = IPGenerator(IPProtocol.TCP)

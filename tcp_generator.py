@@ -21,20 +21,26 @@ TCP Example:
 from tcp_generator import TCPGenerator
 from raw_socket import raw_socket
 
-payload_data = ...
+payload_data = b''
+
+src_ip = '192.168.0.1'
+dst_ip = '8.8.8.8'
 
 tcp_packet = TCPGenerator(payload_data)
 
-tcp_packet.set_src_ip('127.0.0.1')
+tcp_packet.set_src_ip(src_ip)
 tcp_packet.set_src_port(12345)
 
-tcp_packet.set_dst_ip('8.8.8.8')
+tcp_packet.set_dst_ip(dst_ip)
 tcp_packet.set_dst_port(21)
+
+# Set the SYN flag
+tcp_packet.tcp_flag_syn = 1
 
 final_packet = tcp_packet.pack()
 
 rs = raw_socket()
-rs.send(final_packet, '8.8.8.8')
+rs.send(final_packet, dst_ip)
 """
 
 from constants import IPProtocol
@@ -46,8 +52,8 @@ import struct, random, traceback, pprint
 class TCPGenerator(IPGenerator):
     def __init__(self, payload):
         if type(payload) != bytes:
-            raise Exception('TCPGenerator: Incorrect payload format, \
-                            please pack payload into bytes.')
+            raise Exception('TCPGenerator: Incorrect payload format, '+
+                            'please pack payload into bytes.')
 
         # Define all the fields on the TCP header
         # with the length of each field provided to the right.
