@@ -79,7 +79,7 @@ rs.send(ping_packet.pack(), dst_ip)
 ```
 
 Basic TCP packets can also be created. Here is a syn packet, being sent to start the TCP handshake.
-```python3
+```python
 from tcp_generator import TCPGenerator
 from raw_socket import raw_socket
 
