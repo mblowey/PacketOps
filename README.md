@@ -3,7 +3,7 @@
 
 For any protocol of the network stack, the given generator will create the complete skeleton of the packet, filling in most of the fields.
 
-This is a personal project of mine. I wanted to get some hands one experience with the network stack. I plan to include this library in some future projects of mine, so I do have motivation to get this working pretty well.
+This is a personal project of mine. I wanted to get some hands on experience with the network stack. I plan to include this library in some future projects of mine, so I do have motivation to get this working pretty well.
 
 ## Currently Supported Protocols
 IP, ICMP, and TCP (Options for IP and TCP are not yet supported, only basic headers.)
